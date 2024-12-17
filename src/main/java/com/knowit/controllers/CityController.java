@@ -14,7 +14,7 @@ public class CityController {
 	@Autowired
 	CityService cser;
 	
-	@GetMapping("/getallcitie")
+	@GetMapping("/getallcities")
 	public List<City> getAllCITIES() {
 		return cser.getallCity();
 	}
