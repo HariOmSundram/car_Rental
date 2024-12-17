@@ -20,6 +20,5 @@ public class City {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 int cityid;
-@Column
 String cityname;
 }
