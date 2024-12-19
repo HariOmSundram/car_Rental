@@ -16,6 +16,7 @@ public class BookingController {
     public List<Booking> getAllBookings() {
         return Bserv.getallBooking();
     }
+    //ggtdtyd
 	
 
 }
