@@ -11,7 +11,7 @@ import com.knowit.services.BookingService;
 public class BookingController {
 	@Autowired
 	BookingService Bserv;
-	//changes
+	
 	@GetMapping("/getallBookings")
     public List<Booking> getAllBookings() {
         return Bserv.getallBooking();
