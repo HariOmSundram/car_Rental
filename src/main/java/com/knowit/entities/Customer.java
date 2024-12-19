@@ -9,15 +9,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Getter
-@NoArgsConstructor
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name="city")
-public class City {
+@Table(name = "customer")
+public class Customer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-int cityid;
-String cityname;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int customerid;
+	int userid;
+	int cityid;;
+	String address;
+	String adharnumber ;
+	String driving_license_no ;
+	String contact;
+
 }

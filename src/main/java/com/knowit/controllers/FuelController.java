@@ -15,7 +15,7 @@ public class FuelController {
 	@Autowired
 	FuelService fser;
 	
-	@GetMapping("/getallcities")
+	@GetMapping("/getallfuel")
 	public List<Fuel> getallfuelll() {
 		return fser.getallFuel();
 	}
