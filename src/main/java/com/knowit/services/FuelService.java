@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.knowit.entities.Fuel;
-import com.knowit.entities.Roles;
 import com.knowit.repository.FuelRepo;
-import com.knowit.repository.RoleRepo;
 
 @Service
 public class FuelService {
