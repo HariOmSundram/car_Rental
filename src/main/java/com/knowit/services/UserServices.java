@@ -16,4 +16,7 @@ public class UserServices {
     public List<User> getAllUser(){
         return uRepo.findAll();
     }
+    public User getUserAndPassword(String email,String password){
+        return uRepo.getByEmailandPassword(email, password);
+    }
 }
