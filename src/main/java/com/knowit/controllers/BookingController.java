@@ -11,13 +11,13 @@ import com.knowit.services.BookingService;
 public class BookingController {
 	@Autowired
 	BookingService Bserv;
-    ////nice work
+  
 	
 	@GetMapping("/getallBookings")
     public List<Booking> getAllBookings() {
         return Bserv.getallBooking();
     }
-    //ggtdtyd
+
 	
 
 }
