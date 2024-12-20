@@ -22,11 +22,10 @@ import lombok.Setter;
 @Entity
 @Table(name="city")
 public class City {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int cityid;
 	String cityname;
-
 @JsonIgnoreProperties("cityid")
 @OneToMany(mappedBy ="cityid",cascade = CascadeType.ALL )
 Set<Customer> customers;
