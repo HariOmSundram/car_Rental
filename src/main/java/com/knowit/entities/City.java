@@ -24,8 +24,8 @@ import lombok.Setter;
 public class City {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-int cityid;
-String cityname;
+	int cityid;
+	String cityname;
 
 @JsonIgnoreProperties("cityid")
 @OneToMany(mappedBy ="cityid",cascade = CascadeType.ALL )
