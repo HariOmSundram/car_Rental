@@ -43,4 +43,7 @@ public class User {
     @JsonIgnoreProperties("userid")
     @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
     Set<Customer> customers;
+    @JsonIgnoreProperties("userid")
+    @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
+    Set<ServiceProvider> serviceProviders;
 }
