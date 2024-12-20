@@ -1,9 +1,15 @@
 package com.knowit.entities;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,4 +26,8 @@ public class City {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int cityid;
 	String cityname;
+
+@JsonIgnoreProperties("cityid")
+@OneToMany(mappedBy ="cityid",cascade = CascadeType.ALL )
+Set<Customer> customers;
 }
