@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.knowit.entities.Booking;
 import com.knowit.services.BookingService;
-//pranav
+
 @RestController
 public class BookingController {
 	@Autowired
