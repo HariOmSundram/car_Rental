@@ -10,7 +10,12 @@ import com.knowit.entities.User;
 import com.knowit.services.UserServices;
 import org.springframework.web.bind.annotation.PostMapping;
 
+<<<<<<< Updated upstream
 import org.springframework.web.bind.annotation.RequestBody;
+=======
+
+
+>>>>>>> Stashed changes
 
 import org.springframework.web.bind.annotation.RequestParam;
 
