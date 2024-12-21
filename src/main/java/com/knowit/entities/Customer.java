@@ -33,7 +33,7 @@ public class Customer {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="userid")
 	User userid;
-	@JsonIgnoreProperties("customers")
+	// @JsonIgnoreProperties("customers")
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="cityid")
 	City cityid;
