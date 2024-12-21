@@ -18,8 +18,8 @@ public class ServiceProvider {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String address, contact , gstno;
-    @JsonIgnoreProperties("serviceProviders")
-	@ManyToOne(cascade=CascadeType.ALL)
+    // @JsonIgnoreProperties("serviceProviders")
+	 @ManyToOne(cascade=CascadeType.ALL)//
 	@JoinColumn(name="cityid")
     City cityid;
     @JsonIgnoreProperties("serviceProviders")
