@@ -2,9 +2,6 @@ package com.knowit.entities;
 
 import java.util.Set;
 
-import javax.management.relation.Role;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;

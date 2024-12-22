@@ -16,12 +16,11 @@ import lombok.Data;
 public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idcarmodel;
+    Integer idcarmodel;
     String carmodelname;
     @Column(name="modelid")
-    int modelid;
-    int fuelid;
-    
-    int seatno;
+    Integer modelid;
+    Integer fuelid;    
+    Integer seatno;
 
 }
