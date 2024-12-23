@@ -17,7 +17,12 @@ import lombok.Getter;
 @Entity
 @Table(name = "company_of _car")
 public class Company {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int modelid;
+	String companyname;
+    @JsonIgnoreProperties("modelid")
+    @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
+    Set<CarModel> carModels;
+
 }

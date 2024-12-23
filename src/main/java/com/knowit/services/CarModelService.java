@@ -12,8 +12,7 @@ import com.knowit.repository.CarModelRepo;
 public class CarModelService {
     @Autowired
     CarModelRepo cmrepo;
-
-    public List<CarModel> getAllCarModels() {
+    public List<CarModel> getAllCarModels(){
         return cmrepo.findAll();
     }
 }

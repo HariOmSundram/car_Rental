@@ -9,6 +9,7 @@ import com.knowit.entities.Car;
 import com.knowit.services.CarService;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @RestController
 public class CarController {
 
@@ -19,5 +20,5 @@ public class CarController {
     public List<Car> getAllCars() {
         return Cserv.getallCar();
     }
-
+    
 }

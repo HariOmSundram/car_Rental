@@ -23,7 +23,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Entity
-@Table(name = "fuel")
+@Table(name="fuel")
 public class Fuel {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+int fuelid;
+String fueltype;
+ @JsonIgnoreProperties("fuelid")
+    @OneToMany(mappedBy ="fuelid",cascade = CascadeType.ALL )
     Set<CarModel> carModels;
 }

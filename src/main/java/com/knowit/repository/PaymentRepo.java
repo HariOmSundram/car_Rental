@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.knowit.entities.Payment;
 
 @Repository
-public interface PaymentRepo extends JpaRepository<Payment, Integer> {
+public interface PaymentRepo extends JpaRepository<Payment,Integer> {
 
 }

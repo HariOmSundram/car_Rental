@@ -9,12 +9,14 @@ import com.knowit.services.ModeOfPaymentService;
 
 @RestController
 public class ModeOfPaymentController {
-    @Autowired
+	@Autowired
     ModeOfPaymentService Bserv;
-
-    @GetMapping("/getallmodeofpayment")
+	
+	@GetMapping("/getallmodeofpayment")
     public List<ModeOfPayment> getAllModes() {
         return Bserv.getAllModes();
     }
+    //ggtdtyd
+	
 
 }

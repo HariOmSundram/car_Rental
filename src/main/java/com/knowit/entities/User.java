@@ -23,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,14 +33,14 @@ public class User {
     String email;
     @JsonIgnoreProperties("users")
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "roleid")
+    @JoinColumn(name="roleid")
 
     Roles roleid;
 
     @JsonIgnoreProperties("userid")
-    @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
     Set<Customer> customers;
     @JsonIgnoreProperties("userid")
-    @OneToMany(mappedBy = "userid", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
     Set<ServiceProvider> serviceProviders;
 }

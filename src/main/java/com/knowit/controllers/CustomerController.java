@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.knowit.entities.Customer;
 import com.knowit.services.CustomerService;
-
 @RestController
 public class CustomerController {
-    @Autowired
-    CustomerService customerServ;
-
+	@Autowired
+	CustomerService customerServ;
+	
     @GetMapping("/allcustomers")
     public List<Customer> getAllCustomers() {
         return customerServ.getAllCustomer();

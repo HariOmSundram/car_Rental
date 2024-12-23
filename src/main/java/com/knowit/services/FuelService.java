@@ -10,11 +10,11 @@ import com.knowit.repository.FuelRepo;
 
 @Service
 public class FuelService {
-
-	@Autowired
-	FuelRepo frepo;
-
-	public List<Fuel> getallFuel() {
-		return frepo.findAll();
-	}
+	
+		@Autowired
+		FuelRepo frepo;
+		
+		public List<Fuel> getallFuel(){
+			return frepo.findAll();
+		}
 }

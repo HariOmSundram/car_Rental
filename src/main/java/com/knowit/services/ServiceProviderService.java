@@ -7,14 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.knowit.entities.ServiceProvider;
 import com.knowit.repository.ServiceProviderRepo;
-
 @Service
 public class ServiceProviderService {
     @Autowired
     ServiceProviderRepo sprepo;
-
-    public List<ServiceProvider> getAllProviders() {
+    public List<ServiceProvider>  getAllProviders(){
         return sprepo.findAll();
     }
-
+    
 }

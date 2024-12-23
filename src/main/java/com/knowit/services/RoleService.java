@@ -1,5 +1,6 @@
 package com.knowit.services;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ import com.knowit.repository.RoleRepo;
 public class RoleService {
 	@Autowired
 	RoleRepo rrepo;
-
-	public List<Roles> getallRoles() {
+	
+	public List<Roles> getallRoles(){
 		return rrepo.findAll();
 	}
 

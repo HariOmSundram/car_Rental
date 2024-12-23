@@ -12,8 +12,8 @@ import com.knowit.repository.BookingRepo;
 public class BookingService {
 	@Autowired
 	BookingRepo BRepo;
-
-	public List<Booking> getallBooking() {
+	
+	public List<Booking> getallBooking(){
 		return BRepo.findAll();
 	}
 }

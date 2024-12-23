@@ -9,6 +9,7 @@ import com.knowit.entities.Payment;
 import com.knowit.services.PaymentService;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @RestController
 public class PaymentController {
 
@@ -19,5 +20,5 @@ public class PaymentController {
     public List<Payment> getallPayments() {
         return Pserv.getallPayment();
     }
-
+    
 }

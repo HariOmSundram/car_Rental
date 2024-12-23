@@ -1,4 +1,6 @@
 package com.knowit.entities;
+
+
 import java.util.Set;
 
 import java.util.Set;
@@ -21,13 +23,13 @@ public class ServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String address, contact, gstno;
+    String address, contact , gstno;
     // @JsonIgnoreProperties("serviceProviders")
-    @ManyToOne(cascade = CascadeType.ALL) //
-    @JoinColumn(name = "cityid")
+	 @ManyToOne(cascade=CascadeType.ALL)//
+	@JoinColumn(name="cityid")
     City cityid;
     @JsonIgnoreProperties("serviceProviders")
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userid")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="userid")
     User userid;
 }

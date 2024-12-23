@@ -23,13 +23,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "category")
+@Table(name="category")
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     int categoryid;
     String category_name;
     String description;
+
+     @JsonIgnoreProperties("categoryid")
+    @OneToMany(mappedBy ="categoryid",cascade = CascadeType.ALL )
+    Set<Car> cars;
+
 
 }

@@ -9,6 +9,7 @@ import com.knowit.entities.Category;
 import com.knowit.services.CategoryService;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @RestController
 public class CategoryController {
 
