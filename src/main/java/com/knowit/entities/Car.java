@@ -17,7 +17,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="car")
+@Table(name = "car")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,21 @@ public class Car {
     String registrationnumberofthecar;
     Integer kilometers_run;
     Date year_of_purchase;
-    Integer modelid;
-    Integer service_providerid;
-    Integer categoryid;
+
+    @JsonIgnoreProperties("cars")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="modelid")
+    CarModel modelid;
+
+    @JsonIgnoreProperties("cars")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="service_providerid")
+    ServiceProvider service_providerid;
+
+     @JsonIgnoreProperties("cars")
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="categoryid")
+    Category categoryid;
+    /////
+
 }

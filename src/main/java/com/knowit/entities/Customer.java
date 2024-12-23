@@ -23,19 +23,19 @@ import lombok.Setter;
 @Table(name = "customer")
 public class Customer {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int customerid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int customerid;
 	String address;
-	String adharnumber ;
-	String driving_license_no ;
+	String adharnumber;
+	String driving_license_no;
 	String contact;
 	@JsonIgnoreProperties("customers")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="userid")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "userid")
 	User userid;
 	// @JsonIgnoreProperties("customers")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="cityid")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cityid")
 	City cityid;
 
 }

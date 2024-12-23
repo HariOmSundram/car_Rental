@@ -12,8 +12,8 @@ import com.knowit.repository.PaymentRepo;
 public class PaymentService {
     @Autowired
     PaymentRepo Prepo;
-    
-    public List<Payment> getallPayment(){
+
+    public List<Payment> getallPayment() {
         return Prepo.findAll();
     }
 }

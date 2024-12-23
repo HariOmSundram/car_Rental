@@ -1,6 +1,5 @@
 package com.knowit.controllers;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +11,12 @@ import com.knowit.services.CompanyService;
 
 @RestController
 public class CompanyController {
-	@Autowired
-	CompanyService CompServ;
-	
-	@GetMapping("/allcompanies")
+    @Autowired
+    CompanyService CompServ;
+
+    @GetMapping("/allcompanies")
     public List<Company> getAllCompanies() {
         return CompServ.getAllCompany();
     }
-	
-	
+
 }

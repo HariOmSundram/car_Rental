@@ -12,8 +12,8 @@ import com.knowit.repository.ModeOfPaymentRepo;
 public class ModeOfPaymentService {
 	@Autowired
 	ModeOfPaymentRepo MRepo;
-	
-	public List<ModeOfPayment> getAllModes(){
+
+	public List<ModeOfPayment> getAllModes() {
 		return MRepo.findAll();
 	}
 }

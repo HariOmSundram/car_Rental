@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Entity
-@Table(name="status")
+@Table(name = "status")
 
 public class Status {
 	@Id

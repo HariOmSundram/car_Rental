@@ -13,16 +13,15 @@ import lombok.Getter;
 @Table(name = "booking")
 public class Booking {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer bookingid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer bookingid;
 	Integer customerid;
 	Integer providerid;
 	Integer carid;
 	Date booking_date;
 	Integer durationofrent;
-	Date journey_date; 
+	Date journey_date;
 	Integer statusid;
 	Double tokenamount;
-
 
 }

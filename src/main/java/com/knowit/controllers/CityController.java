@@ -13,11 +13,10 @@ import com.knowit.services.CityService;
 public class CityController {
 	@Autowired
 	CityService cser;
-	
+
 	@GetMapping("/getallcities")
 	public List<City> getAllCITIES() {
 		return cser.getallCity();
 	}
-	
 
 }

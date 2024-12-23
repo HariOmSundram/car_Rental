@@ -13,8 +13,9 @@ import com.knowit.services.CarModelService;
 public class CarModelController {
     @Autowired
     CarModelService cmser;
+
     @GetMapping("/getallcarmodles")
-    public List<CarModel> getAllCarModel(){
-        return  cmser.getAllCarModels();
+    public List<CarModel> getAllCarModel() {
+        return cmser.getAllCarModels();
     }
 }

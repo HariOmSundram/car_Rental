@@ -14,7 +14,7 @@ public class CategoryService {
     @Autowired
     CategoryRepo Crepo;
 
-    public List<Category> getallCategory(){
+    public List<Category> getallCategory() {
         return Crepo.findAll();
     }
 }

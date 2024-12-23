@@ -12,8 +12,8 @@ import com.knowit.repository.CityRepo;
 public class CityService {
 	@Autowired
 	CityRepo crepo;
-	
-	public List<City> getallCity(){
+
+	public List<City> getallCity() {
 		return crepo.findAll();
 	}
 

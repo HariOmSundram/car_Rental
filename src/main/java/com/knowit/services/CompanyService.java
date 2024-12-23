@@ -12,8 +12,8 @@ import com.knowit.repository.CompanyRepo;
 public class CompanyService {
 	@Autowired
 	CompanyRepo ComRepo;
-	
-	public List<Company> getAllCompany(){
+
+	public List<Company> getAllCompany() {
 		return ComRepo.findAll();
 	}
 }

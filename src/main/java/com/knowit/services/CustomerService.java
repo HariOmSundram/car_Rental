@@ -12,8 +12,8 @@ import com.knowit.repository.CustomerRepo;
 public class CustomerService {
 	@Autowired
 	CustomerRepo customerrep;
-	
-	public List<Customer> getAllCustomer(){
+
+	public List<Customer> getAllCustomer() {
 		return customerrep.findAll();
 	}
 
