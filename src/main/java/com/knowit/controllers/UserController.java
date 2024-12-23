@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,4 +29,10 @@ public class UserController {
     public List<User> getAllUsers(){
         return uServ.getAllUser();
     }
+
+    @PostMapping("/login")
+    public User getidandpass(@RequestParam String email,@RequestParam String password) {
+        return uServ.getUserAndPassword(email, password);
+    }
+    
 }

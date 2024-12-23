@@ -20,5 +20,4 @@ public class CategoryController {
     public List<Category> getallCategories() {
         return Cserv.getallCategory();
     }
-    
 }

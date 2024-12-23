@@ -16,8 +16,27 @@ import lombok.Setter;
 @Entity
 @Table(name="city")
 public class City {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int cityid;
 	String cityname;
+// @JsonIgnoreProperties("cityid")
+// // @OneToMany(mappedBy ="cityid")//,cascade = CascadeType.ALL 
+// Set<Customer> customers;
+// @JsonIgnoreProperties("cityid")
+// @OneToMany(mappedBy ="cityid" )//,cascade = CascadeType.ALL 
+// Set<ServiceProvider> serviceProviders;
+
+// public void setServiceProviders(Set<ServiceProvider> serviceProviders){
+// for (ServiceProvider sp : serviceProviders) {
+// 	sp.setCityid(this);
+// }
+// this.serviceProviders=serviceProviders;
+// }
+// public void setCustomers(Set<Customer> customers){
+// 	for (Customer sp : customers) {
+// 		sp.setCityid(this);
+// 	}
+// 	this.customers=customers;
+// 	}
 }

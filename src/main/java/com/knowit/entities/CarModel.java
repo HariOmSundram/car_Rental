@@ -33,8 +33,9 @@ import lombok.Setter;
 public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idcarmodel;
+    Integer idcarmodel;
     String carmodelname;
+
 
 
     @JsonIgnoreProperties("carModels")
@@ -52,5 +53,11 @@ public class CarModel {
     @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
     Set<Car> cars;
 }   
+
+
+    @Column(name="modelid")
+    Integer modelid;
+    Integer fuelid;    
+    Integer seatno;
 
 

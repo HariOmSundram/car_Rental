@@ -6,21 +6,23 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Table(name = "booking")
 public class Booking {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int bookingid;
-	int customerid;
-	int providerid;
-	int carid;
+    Integer bookingid;
+	Integer customerid;
+	Integer providerid;
+	Integer carid;
 	Date booking_date;
-	int durationofrent;
+	Integer durationofrent;
 	Date journey_date; 
-	int statusid;
-	double tokenamount;
+	Integer statusid;
+	Double tokenamount;
 
 
 }
