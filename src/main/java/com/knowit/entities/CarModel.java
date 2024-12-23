@@ -55,9 +55,6 @@ public class CarModel {
 }   
 
 
-    @Column(name="modelid")
-    Integer modelid;
-    Integer fuelid;    
-    Integer seatno;
+    
 
 
