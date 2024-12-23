@@ -2,9 +2,6 @@ package com.knowit.entities;
 
 import java.util.Set;
 
-import javax.management.relation.Role;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -43,4 +40,7 @@ public class User {
     @JsonIgnoreProperties("userid")
     @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
     Set<Customer> customers;
+    @JsonIgnoreProperties("userid")
+    @OneToMany(mappedBy ="userid",cascade = CascadeType.ALL )
+    Set<ServiceProvider> serviceProviders;
 }
