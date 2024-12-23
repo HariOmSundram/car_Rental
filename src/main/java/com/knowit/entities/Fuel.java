@@ -30,4 +30,7 @@ String fueltype;
  @JsonIgnoreProperties("fuelid")
     @OneToMany(mappedBy ="fuelid",cascade = CascadeType.ALL )
     Set<CarModel> carModels;
+@JsonIgnoreProperties("fuelid")
+    @OneToMany(mappedBy ="fuelid",cascade = CascadeType.ALL )
+    Set<CarModel> carModels;
 }

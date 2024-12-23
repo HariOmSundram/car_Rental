@@ -33,4 +33,8 @@ public class Category {
      @JsonIgnoreProperties("categoryid")
     @OneToMany(mappedBy ="categoryid",cascade = CascadeType.ALL )
     Set<Car> cars;
+     @JsonIgnoreProperties("categoryid")
+    @OneToMany(mappedBy ="categoryid",cascade = CascadeType.ALL )
+    Set<Car> cars;
+
 }
