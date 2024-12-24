@@ -33,15 +33,15 @@ import lombok.Setter;
 public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer idcarmodel;
+    Integer modelid;
     String carmodelname;
 
 
 
     @JsonIgnoreProperties("carModels")
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="modelid")
-    Company modelid;
+	@JoinColumn(name="company_id")
+    Company company_id;
     
     @JsonIgnoreProperties("carmodels")
 	@ManyToOne(cascade=CascadeType.ALL)
