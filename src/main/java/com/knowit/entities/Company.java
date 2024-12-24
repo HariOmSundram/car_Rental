@@ -15,11 +15,11 @@ import lombok.Getter;
 
 @Getter
 @Entity
-@Table(name = "company_of _car")
+@Table(name = "company_of_car")
 public class Company {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int modelid;
+    int idcompany;
 	String companyname;
     @JsonIgnoreProperties("modelid")
     @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
