@@ -21,8 +21,8 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idcompany;
 	String companyname;
-    @JsonIgnoreProperties("modelid")
-    @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
+    @JsonIgnoreProperties("company_id")
+    @OneToMany(mappedBy ="company_id",cascade = CascadeType.ALL )
     Set<CarModel> carModels;
 
 }

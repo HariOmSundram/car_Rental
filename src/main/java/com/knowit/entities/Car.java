@@ -27,7 +27,7 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer carid;
-    String carmodel;
+
     Double day_wise_rent;
     String registrationnumberofthecar;
     Integer kilometers_run;
