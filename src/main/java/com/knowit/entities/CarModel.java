@@ -33,7 +33,7 @@ import lombok.Setter;
 public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int modelid;
+    Integer modelid;
     String carmodelname;
 
 
