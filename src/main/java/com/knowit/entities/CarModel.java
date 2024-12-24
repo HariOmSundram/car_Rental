@@ -49,6 +49,8 @@ public class CarModel {
     Fuel fuelid;
     Integer seatno;
 
+
+    //relation with car table//
       @JsonIgnoreProperties("modelid")
     @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
     Set<Car> cars;
