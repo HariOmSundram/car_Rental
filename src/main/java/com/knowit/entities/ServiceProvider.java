@@ -22,7 +22,7 @@ import lombok.Data;
 public class ServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    int providerid;
     String address, contact , gstno;
     // @JsonIgnoreProperties("serviceProviders")
 	 @ManyToOne(cascade=CascadeType.ALL)//
