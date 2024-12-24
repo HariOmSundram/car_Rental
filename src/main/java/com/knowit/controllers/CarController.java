@@ -16,9 +16,10 @@ public class CarController {
     @Autowired
     CarService Cserv;
 
-    @GetMapping("/getallCar")
+    @GetMapping("/getallcars")
     public List<Car> getAllCars() {
         return Cserv.getallCar();
     }
+    
     
 }
