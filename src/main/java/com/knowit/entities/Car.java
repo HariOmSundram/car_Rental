@@ -47,6 +47,5 @@ public class Car {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="categoryid")
     Category categoryid;
-    /////
 
 }
