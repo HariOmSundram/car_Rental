@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.knowit.entities.Car;
 import com.knowit.services.CarService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
@@ -21,4 +22,5 @@ public class CarController {
         return Cserv.getallCar();
     }
     
+
 }
