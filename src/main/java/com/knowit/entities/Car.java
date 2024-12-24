@@ -31,7 +31,7 @@ public class Car {
     Double day_wise_rent;
     String registrationnumberofthecar;
     Integer kilometers_run;
-    Date year_of_purchase;
+    Integer year_of_purchase;
 
     @JsonIgnoreProperties("cars")
 	@ManyToOne(cascade=CascadeType.ALL)

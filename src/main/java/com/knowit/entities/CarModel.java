@@ -47,7 +47,7 @@ public class CarModel {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fuelid")
     Fuel fuelid;
-    Integer seatno;
+    int seatno;
 
       @JsonIgnoreProperties("modelid")
     @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
