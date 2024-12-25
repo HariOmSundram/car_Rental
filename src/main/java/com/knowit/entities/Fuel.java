@@ -24,6 +24,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="fuel")
+@JsonIgnoreProperties("carModels")
 public class Fuel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

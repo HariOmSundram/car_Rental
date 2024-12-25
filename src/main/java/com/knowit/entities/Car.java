@@ -13,16 +13,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
 @Entity
-@Table(name="car")
+@Table(name = "car")
+@JsonIgnoreProperties("cars")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,19 +33,18 @@ public class Car {
     Integer year_of_purchase;
 
     @JsonIgnoreProperties("cars")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="modelid")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="modelid")
     CarModel modelid;
 
     @JsonIgnoreProperties("cars")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="service_providerid")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="service_providerid")
     ServiceProvider service_providerid;
 
-     @JsonIgnoreProperties("cars")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="categoryid")
+    @JsonIgnoreProperties("cars")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="categoryid")
     Category categoryid;
-    /////
 
 }

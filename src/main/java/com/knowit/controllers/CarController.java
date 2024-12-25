@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.knowit.entities.Car;
 import com.knowit.services.CarService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -22,5 +22,9 @@ public class CarController {
         return Cserv.getallCar();
     }
     
+    @GetMapping("/filterCars")
+    public List<Car> filterCars(@RequestParam String filterField, @RequestParam String filterValue) {
+        return Cserv.filterCar(filterField, filterValue);
+    }
 
 }

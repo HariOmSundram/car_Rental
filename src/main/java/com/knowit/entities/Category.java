@@ -14,14 +14,12 @@ import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name="category")
 public class Category {
