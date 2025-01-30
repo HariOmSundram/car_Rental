@@ -1,13 +1,13 @@
 package com.knowit.entities;
 
-
-
+import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,46 +15,38 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
 @Entity
-@Table(name="carmodel")
+@Table(name = "car_model")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "cars"})
 public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer modelid;
-    String carmodelname;
+    @Column(name = "model_id")
+    private Integer modelId;
 
+    @Column(name = "model_name", nullable = false)
+    private String modelName;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "manufacturer_id", nullable = false)
+    private CarManufacturer manufacturer;
 
-    @JsonIgnoreProperties("carModels")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="company_id")
-    Company company_id;
-    
-    @JsonIgnoreProperties("carmodels")
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="fuelid")
-    Fuel fuelid;
-    int seatno;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "fuel_id", nullable = false)
+    private Fuel fuel;
 
-      @JsonIgnoreProperties("modelid")
-    @OneToMany(mappedBy ="modelid",cascade = CascadeType.ALL )
-    Set<Car> cars;
-}   
+    @Column(name = "seat_count")
+    private Integer seatCount;
 
-
-    
-
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "model", cascade = CascadeType.ALL)
+    private Set<Car> cars;
+}

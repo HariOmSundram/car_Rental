@@ -1,0 +1,299 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+const OwnerDashboard = () => {
+  const [formData, setFormData] = useState({
+    user: {
+      userName: "",
+      email: "",
+      password: "",
+      role: { roleId: 3, roleName: "Agency" },
+    },
+    city: { cityId: "", cityName: "" },
+    address: "",
+    contact: "",
+    gstNo: "",
+  });
+
+  const [originalData, setOriginalData] = useState({});
+  const [cities, setCities] = useState([]);
+  const [agencyId, setAgencyId] = useState(1); // Adjust to fetch agency ID dynamically
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showForm, setShowForm] = useState(false); // State to toggle form visibility
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm({ mode: "onChange" });
+
+  useEffect(() => {
+    const fetchAgencyDetails = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/api/car-rental-agencies/${agencyId}`
+        );
+        setFormData(response.data);
+        setOriginalData(response.data);
+        // Triggering validation after setting form values
+        setValue("userName", response.data.user.userName);
+        setValue("email", response.data.user.email);
+        setValue("password", response.data.user.password);
+        setValue("contact", response.data.contact);
+        setValue("address", response.data.address);
+        setValue("gstNo", response.data.gstNo);
+        setValue("cityId", response.data.city.cityId);
+      } catch (error) {
+        console.error("Error fetching agency details", error);
+        setErrorMessage("Failed to fetch agency details.");
+      }
+    };
+
+    const fetchCities = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/cities");
+        setCities(response.data);
+      } catch (error) {
+        console.error("Error fetching cities", error);
+      }
+    };
+
+    fetchAgencyDetails();
+    fetchCities();
+  }, [agencyId, setValue]);
+
+  const handleUpdate = async (data) => {
+    const updatedData = { ...formData };
+    updatedData.user = {
+      ...updatedData.user,
+      userName: data.userName,
+      password: data.password,
+    };
+    updatedData.contact = data.contact;
+    updatedData.address = data.address;
+    updatedData.gstNo = data.gstNo;
+    updatedData.city = cities.find(
+      (city) => city.cityId === parseInt(data.cityId)
+    );
+
+    try {
+      const response = await axios.put(
+        `http://localhost:8080/api/car-rental-agencies/${agencyId}`,
+        updatedData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setSuccessMessage("Details updated successfully!");
+      setOriginalData(response.data);
+      setErrorMessage("");
+    } catch (error) {
+      console.error("Error updating agency details", error);
+      setErrorMessage(
+        error.response?.data?.message || "Failed to update details."
+      );
+    }
+  };
+
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div className="container">
+          <Link className="navbar-brand" to="/">
+            CarRental
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <button
+                  className="btn btn-link nav-link"
+                  onClick={() => setShowForm(true)}
+                >
+                  Update Profile
+                </button>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="logout">
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div className="container mt-5">
+        {showForm && (
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <h2 className="text-center mb-4">Update Profile</h2>
+              <form
+                onSubmit={handleSubmit(handleUpdate)}
+                className="p-4 shadow rounded bg-white"
+              >
+                <div className="mb-3">
+                  <label htmlFor="userName" className="form-label">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="userName"
+                    {...register("userName", {
+                      required: "Name is required",
+                      minLength: {
+                        value: 5,
+                        message: "Name must have at least 5 characters",
+                      },
+                    })}
+                  />
+                  {errors.userName && (
+                    <p className="text-danger">{errors.userName.message}</p>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    disabled
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    disabled
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="cityId" className="form-label">
+                    City
+                  </label>
+                  <select
+                    className="form-control"
+                    id="cityId"
+                    {...register("cityId", { required: "City is required" })}
+                  >
+                    <option value="">Select City</option>
+                    {cities.map((city) => (
+                      <option key={city.cityId} value={city.cityId}>
+                        {city.cityName}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.cityId && (
+                    <p className="text-danger">{errors.cityId.message}</p>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="contact" className="form-label">
+                    Contact
+                  </label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="contact"
+                    {...register("contact", {
+                      required: "Contact is required",
+                      pattern: {
+                        value: /^[0-9]{10}$/,
+                        message: "Contact must be a 10-digit number",
+                      },
+                    })}
+                  />
+                  {errors.contact && (
+                    <p className="text-danger">{errors.contact.message}</p>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="address" className="form-label">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="address"
+                    {...register("address", {
+                      required: "Address is required",
+                    })}
+                  />
+                  {errors.address && (
+                    <p className="text-danger">{errors.address.message}</p>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="gstNo" className="form-label">
+                    GST Number
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="gstNo"
+                    {...register("gstNo", {
+                      required: "GST Number is required",
+                      pattern: {
+                        value: /^[0-9]{15}$/,
+                        message: "GST Number must be exactly 15 digits",
+                      },
+                    })}
+                  />
+                  {errors.gstNo && (
+                    <p className="text-danger">{errors.gstNo.message}</p>
+                  )}
+                </div>
+
+                <button type="submit" className="btn btn-primary w-100">
+                  Update Details
+                </button>
+
+                {successMessage && (
+                  <div className="alert alert-success mt-3" role="alert">
+                    {successMessage}
+                  </div>
+                )}
+                {errorMessage && (
+                  <div className="alert alert-danger mt-3" role="alert">
+                    {errorMessage}
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default OwnerDashboard;

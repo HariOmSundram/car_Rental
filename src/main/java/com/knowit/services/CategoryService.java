@@ -1,20 +1,19 @@
 package com.knowit.services;
 
-import java.util.List;
-
+import com.knowit.entities.Category;
+import com.knowit.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.knowit.entities.Category;
-import com.knowit.repository.CategoryRepo;
+import java.util.List;
 
 @Service
 public class CategoryService {
 
     @Autowired
-    CategoryRepo Crepo;
+    private CategoryRepository categoryRepository;
 
-    public List<Category> getallCategory(){
-        return Crepo.findAll();
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 }
