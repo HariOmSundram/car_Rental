@@ -35,11 +35,11 @@ public class CarModel {
     @Column(name = "model_name", nullable = false)
     private String modelName;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false,cascade = CascadeType.ALL)
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private CarManufacturer manufacturer;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false,cascade = CascadeType.ALL)
     @JoinColumn(name = "fuel_id", nullable = false)
     private Fuel fuel;
 

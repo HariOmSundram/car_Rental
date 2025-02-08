@@ -1,21 +1,12 @@
 package com.knowit.entities;
 
-import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -23,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "roles")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "users"})
-public class Roles {
+public class Roles implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
@@ -33,6 +24,11 @@ public class Roles {
     private String roleName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<User> users;
+
+    @Override
+    public String getAuthority() {
+        return roleName;
+    }
 }
