@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -54,7 +55,7 @@ public class CarRentalAgency {
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
     private Set<Booking> bookings;
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
     private Set<Car> cars;
 }

@@ -3,6 +3,7 @@ package com.knowit.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -32,10 +33,12 @@ public class Car {
     @Column(name = "car_id")
     private Integer carId;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL) // CascadePersist will save the related entity automatically if it's new
     @JoinColumn(name = "category_id", nullable = false)
+//    @JsonIgnore
     private Category category;
 
+//    @JsonBackReference
     @ManyToOne(optional = false)
     @JoinColumn(name = "agency_id", nullable = false)
     private CarRentalAgency agency;
@@ -52,14 +55,18 @@ public class Car {
     @Column(name = "year_of_purchase")
     private Integer yearOfPurchase;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "model_id", nullable = false)
+//    @JsonIgnore
     private CarModel model;
 
-    @Column(name = "is_available")
-    private Boolean isAvailable = true;
+    @JsonIgnore // Ignoring availability during serialization
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private Set<CarAvailability> availability;
 
-    @JsonIgnore
+    @JsonIgnore // Ignoring this property during serialization
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
     private Set<Booking> bookings;
+    
+    
 }
