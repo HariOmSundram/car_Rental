@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
+import CarList from "./CarList"; // Import the CarList component
 
 const CustomerDashboard = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ const CustomerDashboard = () => {
     const fetchCustomerDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/custbyid/${customerId}`
+          `http://localhost:9000/custbyid/${customerId}`
         );
         setFormData(response.data);
         setOriginalData(response.data);
@@ -33,7 +34,7 @@ const CustomerDashboard = () => {
 
     const fetchCities = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/cities");
+        const response = await axios.get("http://localhost:9000/cities");
         setCities(response.data);
       } catch (error) {
         console.error("Error fetching cities", error);
@@ -84,7 +85,7 @@ const CustomerDashboard = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8080/update/customer/${customerId}`,
+        `http://localhost:9000/update/customer/${customerId}`,
         updatedData,
         {
           headers: {
@@ -127,8 +128,29 @@ const CustomerDashboard = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ms-auto">
+              {/* Profile Link */}
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="logout">
+                <NavLink
+                  className="nav-link"
+                  to="/dashboard/customer"
+                  activeClassName="active"
+                >
+                  Profile
+                </NavLink>
+              </li>
+              {/* View Cars Link */}
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="/dashboard/customer/view-cars"
+                  activeClassName="active"
+                >
+                  View Cars
+                </NavLink>
+              </li>
+              {/* Logout Link */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
                   Logout
                 </Link>
               </li>
@@ -136,6 +158,9 @@ const CustomerDashboard = () => {
           </div>
         </div>
       </nav>
+
+      {/* Conditional Rendering of Profile or Car List */}
+      <Outlet />
 
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -242,8 +267,6 @@ const CustomerDashboard = () => {
           </form>
         </div>
       </div>
-
-      <Outlet />
     </div>
   );
 };

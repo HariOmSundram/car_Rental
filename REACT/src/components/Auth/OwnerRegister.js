@@ -17,7 +17,7 @@ const OwnerRegister = () => {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/cities");
+        const response = await axios.get("http://localhost:9000/cities");
         setCities(response.data);
       } catch (error) {
         console.error("Error fetching cities", error);
@@ -47,7 +47,7 @@ const OwnerRegister = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:8080/api/car-rental-agencies/registerAgency",
+        "http://localhost:9000/api/car-rental-agencies/registerAgency",
         formData
       );
       setSuccessMessage("Owner registered successfully! Redirecting to login...");
@@ -188,7 +188,7 @@ const OwnerRegister = () => {
               {...register("gstNo", {
                 required: "GST number is required",
                 pattern: {
-                  value: /^[a-zA-Z0-9]{15}$/,
+                  value: /^[0-9]{15}$/,
                   message: "GST number must be 15 digits",
                 },
               })}

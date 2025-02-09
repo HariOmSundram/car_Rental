@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "S7CJFweJKWJOVznG/IoLU6AcX1UjWmpWjP2u2kN00/Y=",
+  "Source": "BookingPaymentAPI",
+  "BasePath": "_content/BookingPaymentAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -16,7 +16,7 @@ const CustomerRegister = () => {
   useEffect(() => {
     const fetchCities = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/cities');
+        const response = await axios.get('http://localhost:9000/cities');
         setCities(response.data);
       } catch (error) {
         console.error('Failed to fetch cities', error);
@@ -45,7 +45,7 @@ const CustomerRegister = () => {
     };
 
     try {
-      await axios.post('http://localhost:8080/register/customer', formData);
+      await axios.post('http://localhost:9000/register/customer', formData);
       alert('Customer registered successfully!');
       navigate('/login');
     } catch (error) {

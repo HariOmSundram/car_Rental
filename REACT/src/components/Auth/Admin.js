@@ -5,7 +5,7 @@ export default function Admin() {
     //const [users, setUsers] = useState([]);
 
     /* function handleDisplayUsers() {
-        fetch('http://localhost:8080/getalluser')
+        fetch('http://localhost:9000/getalluser')
             .then(res => res.json())
             .then(data => {
                 //console.log(data)
