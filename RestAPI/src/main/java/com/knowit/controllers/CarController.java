@@ -36,5 +36,4 @@ public class CarController {
     public List<Car> getCar(@PathVariable int id){
     	return carService.getCarByAgId(id);
     }
-    
 }

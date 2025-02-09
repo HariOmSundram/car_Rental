@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BookingPaymentAPI.Data;
+using Steeltoe.Discovery.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<BookingPaymentDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDiscoveryClient(builder.Configuration);
 
 // Enable CORS (Allowing Frontend to Access API)
 builder.Services.AddCors(options =>
@@ -32,8 +34,9 @@ app.UseSwaggerUI();
 
 app.UseCors("AllowReactApp"); // Apply CORS for the React app only
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseDiscoveryClient();
 
 app.Run();

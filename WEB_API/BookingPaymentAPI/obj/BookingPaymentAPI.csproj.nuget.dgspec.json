@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\cdac\\.NET\\Booking&PaymentService\\BookingPaymentAPI\\BookingPaymentAPI.csproj": {}
+    "C:\\Users\\hario\\OneDrive\\Documents\\GitHub\\car_Rental\\WEB_API\\BookingPaymentAPI\\BookingPaymentAPI.csproj": {}
   },
   "projects": {
-    "D:\\cdac\\.NET\\Booking&PaymentService\\BookingPaymentAPI\\BookingPaymentAPI.csproj": {
+    "C:\\Users\\hario\\OneDrive\\Documents\\GitHub\\car_Rental\\WEB_API\\BookingPaymentAPI\\BookingPaymentAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\cdac\\.NET\\Booking&PaymentService\\BookingPaymentAPI\\BookingPaymentAPI.csproj",
+        "projectUniqueName": "C:\\Users\\hario\\OneDrive\\Documents\\GitHub\\car_Rental\\WEB_API\\BookingPaymentAPI\\BookingPaymentAPI.csproj",
         "projectName": "BookingPaymentAPI",
-        "projectPath": "D:\\cdac\\.NET\\Booking&PaymentService\\BookingPaymentAPI\\BookingPaymentAPI.csproj",
-        "packagesPath": "C:\\Users\\aatif\\.nuget\\packages\\",
-        "outputPath": "D:\\cdac\\.NET\\Booking&PaymentService\\BookingPaymentAPI\\obj\\",
+        "projectPath": "C:\\Users\\hario\\OneDrive\\Documents\\GitHub\\car_Rental\\WEB_API\\BookingPaymentAPI\\BookingPaymentAPI.csproj",
+        "packagesPath": "C:\\Users\\hario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hario\\OneDrive\\Documents\\GitHub\\car_Rental\\WEB_API\\BookingPaymentAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aatif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -67,6 +67,14 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "Steeltoe.Discovery.ClientCore": {
+              "target": "Package",
+              "version": "[3.2.8, )"
+            },
+            "Steeltoe.Discovery.Eureka": {
+              "target": "Package",
+              "version": "[3.2.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

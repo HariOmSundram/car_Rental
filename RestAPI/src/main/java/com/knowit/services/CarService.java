@@ -48,10 +48,8 @@ public class CarService {
         // Save the car and related entities if necessary
         return carRepo.save(car);
     }
-    
     public List<Car> getCarByAgId(int id){
     	return carRepo.getCarByAgencyId(id);
     }
-    
     
 }

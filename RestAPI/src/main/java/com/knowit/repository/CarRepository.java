@@ -13,4 +13,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	@Query(value="select * from car where agency_id =?1",nativeQuery=true)
 	public List<Car> getCarByAgencyId(int agencyid);
 		
+		
+	
+	
 }

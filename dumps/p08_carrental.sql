@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `car_rental` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `car_rental`;
+CREATE DATABASE  IF NOT EXISTS `p08_carrental` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `p08_carrental`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: localhost    Database: car_rental
+-- Host: localhost    Database: p08_carrental
 -- ------------------------------------------------------
--- Server version	8.4.2
+-- Server version	8.2.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -441,7 +441,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,7 +450,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin_user','admin_pass','admin@car_rental.com',1),(2,'customer_user','customer_pass','customer@car_rental.com',2),(3,'agency_user','agency_pass','agency@car_rental.com',3),(4,'ShreeNivas','aA01082003@','ShreeNivasjdv@gmail.com',2),(6,'Ramesh','Ramesh','Ramesh@car_rental.com',1);
+INSERT INTO `users` VALUES (1,'admin_user','admin_pass','admin@car_rental.com',1),(2,'customer_user','customer_pass','customer@car_rental.com',2),(3,'agency_user','agency_pass','agency@gmail.com',3),(4,'ShreeNivas','Srinivas@123','ShreeNivasjdv@gmail.com',2),(6,'Ramesh','Ramesh','Ramesh@car_rental.com',1),(7,'admin_user','$2a$10$EcPQR3SxooboOwGDYsaAXus79HfukMR77N5WDdtNOERUrTJ.ZmQZe','admin@example.com',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -463,4 +463,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-08 17:07:05
+-- Dump completed on 2025-02-09 18:54:45
